@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26bf8200-b5ad-4495-866a-b76bd0dded8d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dt-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dt-server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getData.php" beforeDir="false" afterPath="$PROJECT_DIR$/getData.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Raza/Datatable/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Raza/Datatable/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,12 +18,12 @@
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="composer.json" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/composer.json">
+    <leaf>
+      <file leaf-file-name="datatables.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state relative-caret-position="7905">
+              <caret line="465" column="1" selection-start-line="465" selection-start-column="1" selection-end-line="465" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -61,6 +59,7 @@
         <option value="$PROJECT_DIR$/getData.php" />
         <option value="$PROJECT_DIR$/src/Raza/Datatable/database.php" />
         <option value="$PROJECT_DIR$/composer.json" />
+        <option value="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" />
       </list>
     </option>
   </component>
@@ -72,11 +71,6 @@
   </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
-  </component>
-  <component name="PhpWorkspaceProjectConfiguration">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/composer" />
-    </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1358" />
@@ -90,7 +84,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -98,10 +91,29 @@
               <item name="dt-server" type="b2602c69:ProjectViewProjectNode" />
               <item name="dt-server" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="dt-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dt-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dt-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dt-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Raza" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dt-server" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dt-server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Raza" type="462c0819:PsiDirectoryNode" />
+              <item name="Datatable" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -143,18 +155,20 @@
       <updated>1551795949906</updated>
       <workItem from="1551795953329" duration="12414000" />
       <workItem from="1551875054512" duration="8640000" />
-      <workItem from="1552000492140" duration="898000" />
+      <workItem from="1552000492140" duration="1450000" />
+      <workItem from="1552032544932" duration="20000" />
+      <workItem from="1552045213323" duration="12000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21952000" />
+    <option name="totallyTimeSpent" value="22536000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.18017058" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49785408" visible="true" weight="0.18336888" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -163,7 +177,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.50214595" side_tool="true" weight="0.18017058" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.495671" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.495671" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -178,13 +192,13 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
-      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.17590618" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="11" />
+      <window_info anchor="bottom" id="Run" order="7" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="right" id="Database" order="0" />
@@ -254,24 +268,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-146">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/getData.php" />
     <entry file="file://$PROJECT_DIR$/composer.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7905">
+          <caret line="465" column="1" selection-start-line="465" selection-start-column="1" selection-end-line="465" selection-end-column="1" />
         </state>
       </provider>
     </entry>
