@@ -83,7 +83,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->simple($_GET, $this->_table_name, $this->_primary_key, $this->_colums);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums);
     }
 
 

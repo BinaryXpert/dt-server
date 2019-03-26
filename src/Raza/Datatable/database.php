@@ -10,6 +10,7 @@ namespace Raza\Datatable;
  * @author Asim Raza
  */
 
+use function Couchbase\defaultDecoder;
 use \PDO;
 class database
 {
@@ -57,26 +58,6 @@ class database
         return $out;
     }
     /**
-     * Database connection
-     *
-     * Obtain an PHP PDO connection from a connection details array
-     *
-     *  @param  array $conn SQL connection details. The array should have
-     *    the following properties
-     *     * host - host name
-     *     * db   - database name
-     *     * user - user name
-     *     * pass - user password
-     *  @return resource PDO connection
-     */
-    static function db ( $conn )
-    {
-        if ( is_array( $conn ) ) {
-            return self::sql_connect( $conn );
-        }
-        return $conn;
-    }
-    /**
      * Paging
      *
      * Construct the LIMIT clause for server-side processing SQL query
@@ -121,9 +102,7 @@ class database
                     $orderBy[] = ''.$column['db'].' '.$dir;
                 }
             }
-            if ( count( $orderBy ) ) {
-                $order = 'ORDER BY '.implode(', ', $orderBy);
-            }
+            $order = 'ORDER BY '.implode(', ', $orderBy);
         }
         return $order;
     }
@@ -147,6 +126,7 @@ class database
         $globalSearch = array();
         $columnSearch = array();
         $dtColumns = self::pluck( $columns, 'dt' );
+
         if ( isset($request['search']) && $request['search']['value'] != '' ) {
             $str = $request['search']['value'];
             for ( $i=0, $ien=count($request['columns']) ; $i<$ien ; $i++ ) {
@@ -154,23 +134,53 @@ class database
                 $columnIdx = array_search( $requestColumn['data'], $dtColumns );
                 $column = $columns[ $columnIdx ];
                 if ( $requestColumn['searchable'] == 'true' ) {
-                    $binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-                    $globalSearch[] = "`".$column['db']."` LIKE ".$binding;
+
+                    switch($column['type']){
+
+                        case 1:
+                            if(is_int($str)){
+                                $binding = self::bind( $bindings, $str, $column['type'] );
+                                $globalSearch[] = "".$column['db']." = ".$binding;
+                            }
+                            break;
+                        case 2:
+                            $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
+                            $globalSearch[] = "".$column['db']." ilike ".$binding;
+                            break;
+                        case 99:
+                            //Date Type
+                            $binding = self::bind( $bindings, '%'.$str.'%', 2 );
+                            $globalSearch[] = "to_char(".$column['db'].", 'dd-mm-YYYY')  ilike ".$binding;
+                            break;
+                            break;
+                        default:
+                            break;
+
+                    }
+
+                    //to_char(created_date, 'dd-mm-YYYY')
+
+                    if($column['type'] == 1){
+
+                        if(is_int($str)){
+                        }
+                    }else{
+                    }
+
                 }
             }
         }
         // Individual column filtering
-        if ( isset( $request['columns'] ) ) {
-            for ( $i=0, $ien=count($request['columns']) ; $i<$ien ; $i++ ) {
-                $requestColumn = $request['columns'][$i];
-                $columnIdx = array_search( $requestColumn['data'], $dtColumns );
-                $column = $columns[ $columnIdx ];
-                $str = $requestColumn['search']['value'];
-                if ( $requestColumn['searchable'] == 'true' &&
-                    $str != '' ) {
-                    $binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-                    $columnSearch[] = "`".$column['db']."` LIKE ".$binding;
-                }
+        for ( $i=0, $ien=count($request['columns']) ; $i<$ien ; $i++ ) {
+            $requestColumn = $request['columns'][$i];
+            $columnIdx = array_search( $requestColumn['data'], $dtColumns );
+            $column = $columns[ $columnIdx ];
+            $str = $requestColumn['search']['value'];
+            if ( $requestColumn['searchable'] == 'true' &&
+                $str != '' ) {
+
+                $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
+                $columnSearch[] = "".$column['db']." ilike ".$binding;
             }
         }
         // Combine the filters into a single string
@@ -192,137 +202,50 @@ class database
      * Perform the SQL queries needed for an server-side processing requested,
      * utilising the helper functions of this class, limit(), order() and
      * filter() among others. The returned array is ready to be encoded as JSON
-     * in response to an SSP request, or can be modified if needed before
+     * in response to an self request, or can be modified if needed before
      * sending back to the client.
      *
      *  @param  array $request Data sent to server by DataTables
-     *  @param  array|PDO $conn PDO connection resource or connection parameters array
+     *  @param  array $sql_details SQL connection details - see sql_connect()
      *  @param  string $table SQL table to query
      *  @param  string $primaryKey Primary key of the table
      *  @param  array $columns Column information array
      *  @return array          Server-side processing response array
      */
-    static function simple ( $request, $table, $primaryKey, $columns )
+    static function fetchData ( $request, $table, $primaryKey, $columns )
     {
         $bindings = array();
-//        $db = self::db( $conn );
         $db = self::$_db;
         // Build the SQL query string from the request
         $limit = self::limit( $request, $columns );
         $order = self::order( $request, $columns );
         $where = self::filter( $request, $columns, $bindings );
+
         // Main query to actually get the data
-        $data = self::sql_exec( $db, $bindings,
-            "SELECT ".implode(", ", self::pluck($columns, 'db'))."
+        $psql = "SELECT ".implode(", ", self::pluck($columns, 'db')).", count(*) OVER() AS total_count
 			 FROM $table
 			 $where
 			 $order
-			 $limit"
-        );
+			 $limit";
+        $data = self::sql_exec( $db, $bindings,$psql);
+
         // Data set length after filtering
-        $resFilterLength = self::sql_exec( $db, $bindings,
-            "SELECT COUNT({$primaryKey})
-			 FROM   $table
-			 $where"
-        );
-        $recordsFiltered = $resFilterLength[0][0];
+        $recordsFiltered = @$data[0]["total_count"];
         // Total data set length
         $resTotalLength = self::sql_exec( $db,
             "SELECT COUNT({$primaryKey})
 			 FROM   $table"
         );
-        $recordsTotal = $resTotalLength[0][0];
+        $recordsTotal = @$resTotalLength[0][0];
         /*
          * Output
          */
         return array(
-            "draw"            => isset ( $request['draw'] ) ?
-                intval( $request['draw'] ) :
-                0,
+            "draw"            => intval( $request['draw'] ),
             "recordsTotal"    => intval( $recordsTotal ),
             "recordsFiltered" => intval( $recordsFiltered ),
-            "data"            => self::data_output( $columns, $data )
-        );
-    }
-    /**
-     * The difference between this method and the `simple` one, is that you can
-     * apply additional `where` conditions to the SQL queries. These can be in
-     * one of two forms:
-     *
-     * * 'Result condition' - This is applied to the result set, but not the
-     *   overall paging information query - i.e. it will not effect the number
-     *   of records that a user sees they can have access to. This should be
-     *   used when you want apply a filtering condition that the user has sent.
-     * * 'All condition' - This is applied to all queries that are made and
-     *   reduces the number of records that the user can access. This should be
-     *   used in conditions where you don't want the user to ever have access to
-     *   particular records (for example, restricting by a login id).
-     *
-     *  @param  array $request Data sent to server by DataTables
-     *  @param  array|PDO $conn PDO connection resource or connection parameters array
-     *  @param  string $table SQL table to query
-     *  @param  string $primaryKey Primary key of the table
-     *  @param  array $columns Column information array
-     *  @param  string $whereResult WHERE condition to apply to the result set
-     *  @param  string $whereAll WHERE condition to apply to all queries
-     *  @return array          Server-side processing response array
-     */
-    static function complex ( $request, $conn, $table, $primaryKey, $columns, $whereResult=null, $whereAll=null )
-    {
-        $bindings = array();
-        $db = self::db( $conn );
-        $localWhereResult = array();
-        $localWhereAll = array();
-        $whereAllSql = '';
-        // Build the SQL query string from the request
-        $limit = self::limit( $request, $columns );
-        $order = self::order( $request, $columns );
-        $where = self::filter( $request, $columns, $bindings );
-        $whereResult = self::_flatten( $whereResult );
-        $whereAll = self::_flatten( $whereAll );
-        if ( $whereResult ) {
-            $where = $where ?
-                $where .' AND '.$whereResult :
-                'WHERE '.$whereResult;
-        }
-        if ( $whereAll ) {
-            $where = $where ?
-                $where .' AND '.$whereAll :
-                'WHERE '.$whereAll;
-            $whereAllSql = 'WHERE '.$whereAll;
-        }
-        // Main query to actually get the data
-        $data = self::sql_exec( $db, $bindings,
-            "SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM `$table`
-			 $where
-			 $order
-			 $limit"
-        );
-        // Data set length after filtering
-        $resFilterLength = self::sql_exec( $db, $bindings,
-            "SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table`
-			 $where"
-        );
-        $recordsFiltered = $resFilterLength[0][0];
-        // Total data set length
-        $resTotalLength = self::sql_exec( $db, $bindings,
-            "SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table` ".
-            $whereAllSql
-        );
-        $recordsTotal = $resTotalLength[0][0];
-        /*
-         * Output
-         */
-        return array(
-            "draw"            => isset ( $request['draw'] ) ?
-                intval( $request['draw'] ) :
-                0,
-            "recordsTotal"    => intval( $recordsTotal ),
-            "recordsFiltered" => intval( $recordsFiltered ),
-            "data"            => self::data_output( $columns, $data )
+            "data"            => self::data_output( $columns, $data ),
+            "sql"			  => $psql
         );
     }
     /**
@@ -340,7 +263,7 @@ class database
     {
         try {
             $db = @new PDO(
-                "mysql:host={$sql_details['host']};dbname={$sql_details['db']}",
+                "pgsql:host={$sql_details['host']};dbname={$sql_details['db']}",
                 $sql_details['user'],
                 $sql_details['pass'],
                 array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION )
@@ -366,61 +289,29 @@ class database
      */
     static function sql_exec ( $db, $bindings, $sql=null )
     {
-
-       //$dsn = "pgsql:host=localhost;port=5432;dbname=drugdictionary;user=postgres;password=postgres";
-//        $dns = "pgsql:host=localhost;port=5432;dbname=base-server;user=postgres;password=postgres";
-
-       // var_dump(self::$_dns); die;
-
-//        try {
-//            // create a PostgreSQL database connection
-//            $myPDO = new PDO(self::$_dns);
-//
-//            // display a message if connected to the PostgreSQL successfully
-//            if ($myPDO)
-//            {
-////        echo "Connected to the <strong>driqrest</strong> database successfully!";
-//            }
-//        } catch (PDOException $e) {
-//            // report error message
-//            echo $e->getMessage();
-//        }
-//        echo $sql;
-//        $result = $myPDO->query($sql);
-//        $o = $result->fetch();
-//
-//        echo json_encode($o, true); die;
-
-
         // Argument shifting
         if ( $sql === null ) {
             $sql = $bindings;
         }
-        $stmt = self::$_db->query( $sql );
-        //echo $sql; die;
+        $stmt = $db->prepare( $sql );
+        //echo $sql;
         // Bind parameters
         if ( is_array( $bindings ) ) {
             for ( $i=0, $ien=count($bindings) ; $i<$ien ; $i++ ) {
                 $binding = $bindings[$i];
+
                 $stmt->bindValue( $binding['key'], $binding['val'], $binding['type'] );
             }
         }
-//        if($stmt == false){
-//            echo $sql; die;
-//        }
-        $stmt->execute();
-//         Execute
+        // Execute
         try {
             $stmt->execute();
         }
         catch (PDOException $e) {
-            self::fatal( "An SQL error occurred: ".$e->getMessage() );
+            self::fatal( "An SQL error occurred: ".$e->getMessage()." [with] '".$sql."'" );
         }
-
-//        var_dump($stmt); die;
-      //  var_dump($stmt->fetchAll( PDO::FETCH_BOTH )); die;
         // Return all
-        return $stmt->fetchAll( PDO::FETCH_BOTH );
+        return $stmt->fetchAll();
     }
     /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
      * Internal methods
@@ -470,29 +361,11 @@ class database
      */
     static function pluck ( $a, $prop )
     {
-
         $out = array();
-        $len=count($a);
-        for ( $i=0 ; $i<$len ; $i++ ) {
+        for ( $i=0, $len=count($a) ; $i<$len ; $i++ ) {
             $out[] = $a[$i][$prop];
         }
         return $out;
     }
-    /**
-     * Return a string from an array or a string
-     *
-     * @param  array|string $a Array to join
-     * @param  string $join Glue for the concatenation
-     * @return string Joined string
-     */
-    static function _flatten ( $a, $join = ' AND ' )
-    {
-        if ( ! $a ) {
-            return '';
-        }
-        else if ( $a && is_array($a) ) {
-            return implode( $join, $a );
-        }
-        return $a;
-    }
 }
+?>
