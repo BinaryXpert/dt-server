@@ -198,6 +198,27 @@ class database
         }
         return $where;
     }
+
+    /**
+     *
+     * Join
+     *
+     * Create SQL for joining tables
+     *
+     * @param $join
+     * @return string
+     */
+
+    static function join($joins){
+        $sqlQuery = "";
+        if(count($joins)){
+            foreach ($joins as $join){
+                $sqlQuery .=  $join['type'] . " JOIN " . $join['table'] . " ON " . $join['primary'] . " = " . $join['secondary'] ;
+            }
+        }
+        return $sqlQuery;
+    }
+
     /**
      * Perform the SQL queries needed for an server-side processing requested,
      * utilising the helper functions of this class, limit(), order() and
@@ -212,7 +233,7 @@ class database
      *  @param  array $columns Column information array
      *  @return array          Server-side processing response array
      */
-    static function fetchData ( $request, $table, $primaryKey, $columns )
+    static function fetchData ( $request, $table, $primaryKey, $columns, $joins )
     {
         $bindings = array();
         $db = self::$_db;
@@ -220,10 +241,12 @@ class database
         $limit = self::limit( $request, $columns );
         $order = self::order( $request, $columns );
         $where = self::filter( $request, $columns, $bindings );
+        $join = self::join( $joins );
 
         // Main query to actually get the data
         $psql = "SELECT ".implode(", ", self::pluck($columns, 'db')).", count(*) OVER() AS total_count
 			 FROM $table
+			 $join
 			 $where
 			 $order
 			 $limit";
@@ -234,7 +257,9 @@ class database
         // Total data set length
         $resTotalLength = self::sql_exec( $db,
             "SELECT COUNT({$primaryKey})
-			 FROM   $table"
+			 FROM   $table 
+			    $join
+              "
         );
         $recordsTotal = @$resTotalLength[0][0];
         /*

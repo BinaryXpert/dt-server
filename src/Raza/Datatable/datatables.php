@@ -22,6 +22,9 @@ class datatables
     /** @var mix $_colums hold the list of the columns */
     private $_colums = array();
 
+    /** @var mix $_join_table hold the list of the columns */
+    private $_join_table = array();
+
     private $database;
 
 
@@ -61,6 +64,25 @@ class datatables
     }
 
     /**
+     * Add Join
+     *
+     * Add Joins for datatable
+     *
+     * @param mix $param1 An array containing the parameter
+     *
+     * @return null
+     */
+    public function joinTable($param)
+    {
+        if(isset($param['type']) && isset($param['table']) && isset($param['primary']) && isset($param['secondary'])){
+            $this->_join_table = $param;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    /**
      * Add Column
      *
      * Add column for datatable
@@ -83,7 +105,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table);
     }
 
 
