@@ -40,6 +40,7 @@ class database
      */
     static function data_output ( $columns, $data )
     {
+
         $out = array();
         for ( $i=0, $ien=count($data) ; $i<$ien ; $i++ ) {
             $row = array();
@@ -47,10 +48,17 @@ class database
                 $column = $columns[$j];
                 // Is there a formatter?
                 if ( isset( $column['formatter'] ) ) {
-                    $row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['db'] ], $data[$i] );
+
+                    if($column['alies'])
+                        $row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['alies'] ], $data[$i] );
+                    else
+                        $row[ $column['dt'] ] = $column['formatter']( $data[$i][ $column['db'] ], $data[$i] );
                 }
                 else {
-                    $row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
+                    if($column['alies'])
+                        $row[ $column['dt'] ] = $data[$i][ $columns[$j]['alies'] ];
+                    else
+                        $row[ $column['dt'] ] = $data[$i][ $columns[$j]['db'] ];
                 }
             }
             $out[] = $row;
@@ -213,11 +221,37 @@ class database
         $sqlQuery = "";
         if(count($joins)){
             foreach ($joins as $join){
-                $sqlQuery .=  $join['type'] . " JOIN " . $join['table'] . " ON " . $join['primary'] . " = " . $join['secondary'] ;
+                $sqlQuery .=  $join['type'] . " JOIN " . $join['table'] . " ON " . $join['primary'] . " = " . $join['secondary'] . " ";
             }
         }
         return $sqlQuery;
     }
+
+    /**
+     *
+     * columns
+     *
+     * Create SQL for joining tables
+     *
+     * @param $join
+     * @return string
+     */
+
+    static function columns($columns){
+        $sqlQuery = "";
+
+        foreach ($columns as $column){
+
+            if($column['alies']){
+                $sqlQuery .= ", " . $column['db'] . " " . $column['alies'] . " ";
+            }else{
+                $sqlQuery .= ", " . $column['db'] . " ";
+            }
+        }
+        return trim($sqlQuery,",");
+    }
+
+
 
     /**
      * Perform the SQL queries needed for an server-side processing requested,
@@ -242,9 +276,10 @@ class database
         $order = self::order( $request, $columns );
         $where = self::filter( $request, $columns, $bindings );
         $join = self::join( $joins );
+        $fileds = self::columns($columns);
 
         // Main query to actually get the data
-        $psql = "SELECT ".implode(", ", self::pluck($columns, 'db')).", count(*) OVER() AS total_count
+        $psql = "SELECT $fileds , count(*) OVER() AS total_count
 			 FROM $table
 			 $join
 			 $where

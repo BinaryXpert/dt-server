@@ -75,7 +75,7 @@ class datatables
     public function joinTable($param)
     {
         if(isset($param['type']) && isset($param['table']) && isset($param['primary']) && isset($param['secondary'])){
-            $this->_join_table = $param;
+            $this->_join_table[] = $param;
             return true;
         }else{
             return false;
