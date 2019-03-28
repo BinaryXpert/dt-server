@@ -155,10 +155,16 @@ class database
                             $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
                             $globalSearch[] = "".$column['db']." ilike ".$binding;
                             break;
-                        case 99:
+                        case 98:
                             //Date Type
                             $binding = self::bind( $bindings, '%'.$str.'%', 2 );
                             $globalSearch[] = "to_char(".$column['db'].", 'dd-mm-YYYY')  ilike ".$binding;
+                            break;
+                            break;
+                        case 99:
+                            //Date Type
+                            $binding = self::bind( $bindings, '%'.$str.'%', 2 );
+                            $globalSearch[] = "to_char(".$column['db'].", 'dd-mm-YYYY HH:ii:ss')  ilike ".$binding;
                             break;
                             break;
                         default:
