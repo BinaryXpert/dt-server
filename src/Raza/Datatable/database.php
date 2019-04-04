@@ -203,10 +203,12 @@ class database
                 $str != '' ) {
                 if(strpos($str,"|")){
                     $pices = explode("|", $str);
+                    $columnMultipleSearch = array();
                     foreach ($pices as $p){
                         $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
-                        $columnSearch[] = "".$column['db']." ilike ".$binding;
+                        $columnMultipleSearch[] = "".$column['db']." ilike ".$binding;
                     }
+                    $columnSearch[] = $columnMultipleSearch;
                 }else{
                     $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
                     $columnSearch[] = "".$column['db']." ilike ".$binding;
@@ -219,9 +221,20 @@ class database
             $where = '('.implode(' OR ', $globalSearch).')';
         }
         if ( count( $columnSearch ) ) {
-            $where = $where === '' ?
-                implode(' AND ', $columnSearch) :
-                $where .' AND '. implode(' AND ', $columnSearch);
+            //Added Mutivalue search feature
+            foreach($columnSearch as $column){
+                if($where != '')
+                    $where .= ' AND ';
+                if(is_array($column)){
+                    $where .= " (" . implode(" OR ", $columns) . " ) ";
+                }else{
+                    $where .= " AND " . $column ;
+                }
+            }
+//            $where = $where === '' ?
+//                implode(' AND ', $columnSearch) :
+//
+//                $where .' AND '. implode(' AND ', $columnSearch);
         }
         if ( $where !== '' ) {
             $where = 'WHERE '.$where;

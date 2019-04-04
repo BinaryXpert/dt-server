@@ -18,12 +18,12 @@
       <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="209" column="22" lean-forward="true" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
+            <state relative-caret-position="375">
+              <caret line="223" column="44" lean-forward="false" selection-start-line="223" selection-start-column="44" selection-end-line="223" selection-end-column="44" />
               <folding>
-                <marker date="1554398260084" expanded="true" signature="11001:11101" ph="SELECT ${$fi... ${$table}" />
-                <marker date="1554398260084" expanded="true" signature="11355:11394" ph="SELECT COUNT... " />
-                <marker date="1554398260084" expanded="true" signature="11355:11409" ph="SELECT COUNT... " />
+                <marker date="1554399502187" expanded="true" signature="11512:11612" ph="SELECT ${$fi... ${$table}" />
+                <marker date="1554399502187" expanded="true" signature="11866:11905" ph="SELECT COUNT... " />
+                <marker date="1554399502187" expanded="true" signature="11866:11920" ph="SELECT COUNT... " />
               </folding>
             </state>
           </provider>
@@ -243,12 +243,12 @@
       <workItem from="1553611580307" duration="8000" />
       <workItem from="1553681957039" duration="2507000" />
       <workItem from="1553756925772" duration="1034000" />
-      <workItem from="1554397952515" duration="308000" />
+      <workItem from="1554397952515" duration="1218000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7919000" />
+    <option name="totallyTimeSpent" value="8829000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -259,9 +259,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42702702" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.426506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -289,9 +289,9 @@
         <state relative-caret-position="2430">
           <caret line="163" column="31" lean-forward="false" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
           <folding>
-            <marker date="1554398260084" expanded="true" signature="11001:11101" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1554398260084" expanded="true" signature="11355:11394" ph="SELECT COUNT... " />
-            <marker date="1554398260084" expanded="true" signature="11355:11409" ph="SELECT COUNT... " />
+            <marker date="1554399502187" expanded="true" signature="11512:11612" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1554399502187" expanded="true" signature="11866:11905" ph="SELECT COUNT... " />
+            <marker date="1554399502187" expanded="true" signature="11866:11920" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -346,12 +346,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="209" column="22" lean-forward="true" selection-start-line="209" selection-start-column="22" selection-end-line="209" selection-end-column="22" />
+        <state relative-caret-position="375">
+          <caret line="223" column="44" lean-forward="false" selection-start-line="223" selection-start-column="44" selection-end-line="223" selection-end-column="44" />
           <folding>
-            <marker date="1554398260084" expanded="true" signature="11001:11101" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1554398260084" expanded="true" signature="11355:11394" ph="SELECT COUNT... " />
-            <marker date="1554398260084" expanded="true" signature="11355:11409" ph="SELECT COUNT... " />
+            <marker date="1554399502187" expanded="true" signature="11512:11612" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1554399502187" expanded="true" signature="11866:11905" ph="SELECT COUNT... " />
+            <marker date="1554399502187" expanded="true" signature="11866:11920" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
