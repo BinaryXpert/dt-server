@@ -226,7 +226,7 @@ class database
                 if($where != '')
                     $where .= ' AND ';
                 if(is_array($column)){
-                    $where .= " (" . implode(" OR ", $columns) . " ) ";
+                    $where .= " (" . implode(" OR ", $column) . " ) ";
                 }else{
                     $where .= " AND " . $column ;
                 }
