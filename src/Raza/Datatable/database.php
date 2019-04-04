@@ -152,8 +152,17 @@ class database
                             }
                             break;
                         case 2:
-                            $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
-                            $globalSearch[] = "".$column['db']." ilike ".$binding;
+                            if(strpos($str,"|")){
+                                $pices = explode("|", $str);
+                                foreach ($pices as $p){
+                                    $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
+                                    $globalSearch[] = "".$column['db']." ilike ".$binding;
+                                }
+                            }else{
+                                $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
+                                $globalSearch[] = "".$column['db']." ilike ".$binding;
+                            }
+
                             break;
                         case 98:
                             //Date Type
@@ -192,9 +201,16 @@ class database
             $str = $requestColumn['search']['value'];
             if ( $requestColumn['searchable'] == 'true' &&
                 $str != '' ) {
-
-                $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
-                $columnSearch[] = "".$column['db']." ilike ".$binding;
+                if(strpos($str,"|")){
+                    $pices = explode("|", $str);
+                    foreach ($pices as $p){
+                        $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
+                        $columnSearch[] = "".$column['db']." ilike ".$binding;
+                    }
+                }else{
+                    $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
+                    $columnSearch[] = "".$column['db']." ilike ".$binding;
+                }
             }
         }
         // Combine the filters into a single string
