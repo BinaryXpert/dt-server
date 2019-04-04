@@ -228,7 +228,7 @@ class database
                 if(is_array($column)){
                     $where .= " (" . implode(" OR ", $column) . " ) ";
                 }else{
-                    $where .= " AND " . $column ;
+                    $where .= $column ;
                 }
             }
 //            $where = $where === '' ?
