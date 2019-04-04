@@ -153,7 +153,7 @@ class database
                             break;
                         case 2:
                             if(strpos($str,"|")){
-                                $pices = explode("|", $str);
+                                $pices = explode("|", trim($str,"|"));
                                 foreach ($pices as $p){
                                     $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
                                     $globalSearch[] = "".$column['db']." ilike ".$binding;
@@ -202,7 +202,7 @@ class database
             if ( $requestColumn['searchable'] == 'true' &&
                 $str != '' ) {
                 if(strpos($str,"|")){
-                    $pices = explode("|", $str);
+                    $pices = explode("|", trim($str,"|"));
                     $columnMultipleSearch = array();
                     foreach ($pices as $p){
                         $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
