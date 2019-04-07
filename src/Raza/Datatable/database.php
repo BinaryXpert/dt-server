@@ -180,9 +180,6 @@ class database
                             break;
 
                     }
-
-                    //to_char(created_date, 'dd-mm-YYYY')
-
                     if($column['type'] == 1){
 
                         if(is_int($str)){
@@ -205,12 +202,12 @@ class database
                     $pices = explode("|", trim($str,"|"));
                     $columnMultipleSearch = array();
                     foreach ($pices as $p){
-                        $binding = self::bind( $bindings, '%'.$p.'%', $column['type'] );
+                        $binding = self::bind( $bindings, ''.$p.'', $column['type'] );
                         $columnMultipleSearch[] = "".$column['db']." ilike ".$binding;
                     }
                     $columnSearch[] = $columnMultipleSearch;
                 }else{
-                    $binding = self::bind( $bindings, '%'.$str.'%', $column['type'] );
+                    $binding = self::bind( $bindings, ''.$str.'', $column['type'] );
                     $columnSearch[] = "".$column['db']." ilike ".$binding;
                 }
             }
@@ -231,10 +228,6 @@ class database
                     $where .= $column ;
                 }
             }
-//            $where = $where === '' ?
-//                implode(' AND ', $columnSearch) :
-//
-//                $where .' AND '. implode(' AND ', $columnSearch);
         }
         if ( $where !== '' ) {
             $where = 'WHERE '.$where;
