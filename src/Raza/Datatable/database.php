@@ -295,7 +295,7 @@ class database
      *  @param  array $columns Column information array
      *  @return array          Server-side processing response array
      */
-    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = "" )
+    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = null )
     {
         $bindings = array();
         $db = self::$_db;
@@ -306,7 +306,8 @@ class database
         $join = self::join( $joins );
         $fileds = self::columns($columns);
 
-        $where = trim($where) ? $where . " AND " . $added_where : $added_where;
+        if($added_where)
+            $where = trim($where) ? $where . " AND " . $added_where : $added_where;
 
         // Main query to actually get the data
         $psql = "SELECT $fileds , count(*) OVER() AS total_count
