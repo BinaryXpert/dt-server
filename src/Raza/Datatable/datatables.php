@@ -121,7 +121,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where);
     }
 
 
