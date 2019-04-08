@@ -27,6 +27,8 @@ class datatables
 
     private $database;
 
+    private $where;
+
 
 
     public function __construct($host, $port, $db_name, $user_name, $password)
@@ -94,6 +96,20 @@ class datatables
     public function setPrimaryKey($param)
     {
         $this->_primary_key = $param;
+    }
+
+    /**
+     * Add WHERE
+     *
+     * Add Where for datatable
+     *
+     * @param mix $param1 An array containing the parameter
+     *
+     * @return null
+     */
+    public function setWhere($param)
+    {
+        $this->where = $param;
     }
 
     /**
