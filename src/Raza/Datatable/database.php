@@ -307,7 +307,7 @@ class database
         $fileds = self::columns($columns);
 
         if($added_where)
-            $where = trim($where) ? $where . " AND " . $added_where : $added_where;
+            $where = trim($where) ? $where . " AND " . $added_where : ' WHERE ' . $added_where;
 
         // Main query to actually get the data
         $psql = "SELECT $fileds , count(*) OVER() AS total_count
