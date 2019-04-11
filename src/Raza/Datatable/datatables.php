@@ -29,6 +29,8 @@ class datatables
 
     private $where;
 
+    private $_distinct;
+
 
 
     public function __construct($host, $port, $db_name, $user_name, $password)
@@ -113,6 +115,36 @@ class datatables
     }
 
     /**
+     * Add WHERE
+     *
+     * Add Where for datatable
+     *
+     * @param mix $param1 An array containing the parameter
+     *
+     * @return null
+     */
+    public function setDistinct($param)
+    {
+        $this->_distinct = $param;
+    }
+
+
+    /**
+     * Add GROUP BY
+     *
+     * Add Where for datatable
+     *
+     * @param mix $param1 An array containing the parameter
+     *
+     * @return null
+     */
+    public function setGroupBy($param)
+    {
+        $this->_group_by = $param;
+    }
+
+
+    /**
      * Fetch Data
      *
      * Get Data for datatable
@@ -121,7 +153,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where, $this->_distinct, true);
     }
 
 

@@ -267,7 +267,6 @@ class database
 
     static function columns($columns){
         $sqlQuery = "";
-
         foreach ($columns as $column){
 
             if($column['alies']){
@@ -277,6 +276,11 @@ class database
             }
         }
         return trim($sqlQuery,",");
+    }
+
+    static function group($columns){
+        $fileds = array_column($columns , "db");
+        return implode(", ", $fileds);
     }
 
 
@@ -295,7 +299,7 @@ class database
      *  @param  array $columns Column information array
      *  @return array          Server-side processing response array
      */
-    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = null )
+    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = null, $distinct = null, $group_by =  null )
     {
         $bindings = array();
         $db = self::$_db;
@@ -306,14 +310,23 @@ class database
         $join = self::join( $joins );
         $fileds = self::columns($columns);
 
+        $group_by = "";
+
         if($added_where)
             $where = trim($where) ? $where . " AND " . $added_where : ' WHERE ' . $added_where;
 
+        if($distinct)
+            $distinct = "DISTINCT ON ( " . $distinct . ") ";
+
+        if($distinct)
+            $group_by = " GROUP BY " . self::group($columns) . " ";
+
         // Main query to actually get the data
-        $psql = "SELECT distinct $fileds , count(*) OVER() AS total_count
+        $psql = "SELECT $distinct $fileds , count(*) OVER() AS total_count
 			 FROM $table
 			 $join
 			 $where
+			 $group_by
 			 $order
 			 $limit";
         $data = self::sql_exec( $db, $bindings,$psql);
