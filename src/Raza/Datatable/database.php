@@ -310,7 +310,7 @@ class database
             $where = trim($where) ? $where . " AND " . $added_where : ' WHERE ' . $added_where;
 
         // Main query to actually get the data
-        $psql = "SELECT $fileds , count(*) OVER() AS total_count
+        $psql = "SELECT distinct $fileds , count(*) OVER() AS total_count
 			 FROM $table
 			 $join
 			 $where
