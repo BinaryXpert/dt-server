@@ -335,7 +335,7 @@ class database
         $recordsFiltered = @$data[0]["total_count"];
         // Total data set length
         $resTotalLength = self::sql_exec( $db,
-            "SELECT COUNT({$primaryKey})
+            "SELECT COUNT ( DISTINCT {$primaryKey})
 			 FROM   $table 
 			    $join
               "
