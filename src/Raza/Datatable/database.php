@@ -334,14 +334,15 @@ class database
         // Data set length after filtering
         $recordsFiltered = @$data[0]["total_count"];
         // Total data set length
-        $resTotalLength = self::sql_exec( $db,
-            "SELECT COUNT ( DISTINCT {$primaryKey})
+        $length_psql = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
 			 FROM   $table 
 			    $join
 			    WHERE $added_where
-              "
+              ";
+        $resTotalLength = self::sql_exec( $db,$length_psql
+
         );
-        $recordsTotal = @$resTotalLength[0][0];
+        $recordsTotal = @$resTotalLength[0]['total_count'];
         /*
          * Output
          */
@@ -350,7 +351,8 @@ class database
             "recordsTotal"    => intval( $recordsTotal ),
             "recordsFiltered" => intval( $recordsFiltered ),
             "data"            => self::data_output( $columns, $data ),
-            "sql"			  => $psql
+            "sql"			  => $psql,
+            "length"          => $length_psql
         );
     }
     /**
