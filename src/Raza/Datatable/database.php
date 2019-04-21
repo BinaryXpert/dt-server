@@ -321,8 +321,13 @@ class database
         if($distinct)
             $group_by = " GROUP BY " . self::group($columns) . " ";
 
+        $count_sql  = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
+			 FROM   $table 
+			    $join
+			    $where";
+
         // Main query to actually get the data
-        $psql = "SELECT $distinct $fileds , count(*) OVER() AS total_count
+        $psql = "SELECT $distinct $fileds , ($count_sql) AS total_count
 			 FROM $table
 			 $join
 			 $where
@@ -337,11 +342,12 @@ class database
         $length_psql = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
 			 FROM   $table 
 			    $join
-			    WHERE $added_where
               ";
-        $resTotalLength = self::sql_exec( $db,$length_psql
+        if($added_where)
+            $length_psql .= " WHERE $added_where";
 
-        );
+        $resTotalLength = self::sql_exec( $db,$length_psql);
+
         $recordsTotal = @$resTotalLength[0]['total_count'];
         /*
          * Output
