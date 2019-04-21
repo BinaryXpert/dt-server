@@ -338,6 +338,7 @@ class database
             "SELECT COUNT ( DISTINCT {$primaryKey})
 			 FROM   $table 
 			    $join
+			    WHERE $added_where
               "
         );
         $recordsTotal = @$resTotalLength[0][0];
