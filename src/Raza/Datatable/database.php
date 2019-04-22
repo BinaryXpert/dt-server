@@ -175,6 +175,11 @@ class database
                             $binding = self::bind( $bindings, '%'.$str.'%', 2 );
                             $globalSearch[] = "to_char(".$column['db'].", 'dd-mm-YYYY HH:ii:ss')  ilike ".$binding;
                             break;
+
+                        case 100:
+                            //Date custom format Type
+                            $binding = self::bind( $bindings, '%'.$str.'%', 2 );
+                            $globalSearch[] = "to_char(".$column['db'].", '" . $column['format'] ."')  ilike ".$binding;
                             break;
                         default:
                             break;
@@ -356,6 +361,7 @@ class database
             "recordsFiltered" => intval( $recordsFiltered ),
             "data"            => self::data_output( $columns, $data ),
             "sql"			  => $psql,
+            "count_sql"			  => $count_sql,
             "length"          => $length_psql
         );
     }
