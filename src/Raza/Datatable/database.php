@@ -321,23 +321,21 @@ class database
         if($distinct)
             $group_by = " GROUP BY " . self::group($columns) . " ";
 
-        $count_sql  = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
+        $count_sql  = " SELECT COUNT (DISTINCT {$primaryKey}) as total_count
 			 FROM   $table 
-			    $join
-			    $where";
+			    $join 
+			    $where
+			    ";
 
         // Main query to actually get the data
-        $psql = "SELECT $distinct $fileds , ($count_sql) AS total_count
-			 FROM $table
-			 $join
-			 $where
-			 $group_by
-			 $order
-			 $limit";
+        $psql = "SELECT $distinct $fileds FROM $table  $join $where $group_by $order $limit";
         $data = self::sql_exec( $db, $bindings,$psql);
 
+
+        $total_count = self::sql_exec( $db, $bindings,$count_sql);
+
         // Data set length after filtering
-        $recordsFiltered = @$data[0]["total_count"];
+        $recordsFiltered = @$total_count[0]["total_count"];
         // Total data set length
         $length_psql = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
 			 FROM   $table 
