@@ -18,16 +18,16 @@
       <file leaf-file-name="database.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+            <state relative-caret-position="464">
+              <caret line="112" column="35" lean-forward="false" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
               <folding>
-                <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-                <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-                <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-                <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-                <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-                <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-                <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+                <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+                <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+                <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+                <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+                <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+                <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+                <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
               </folding>
             </state>
           </provider>
@@ -259,12 +259,12 @@
       <workItem from="1555711416598" duration="3504000" />
       <workItem from="1555919431896" duration="2917000" />
       <workItem from="1555946799621" duration="1015000" />
-      <workItem from="1555954946784" duration="4423000" />
+      <workItem from="1555954946784" duration="4657000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29643000" />
+    <option name="totallyTimeSpent" value="29877000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-123" width="1920" height="1080" extended-state="6" />
@@ -305,13 +305,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -340,13 +340,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -375,13 +375,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -410,13 +410,13 @@
         <state relative-caret-position="4935">
           <caret line="330" column="21" lean-forward="false" selection-start-line="330" selection-start-column="21" selection-end-line="330" selection-end-column="21" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -445,13 +445,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -480,13 +480,13 @@
         <state relative-caret-position="4590">
           <caret line="307" column="0" lean-forward="false" selection-start-line="307" selection-start-column="0" selection-end-line="307" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -515,13 +515,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -550,13 +550,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -585,13 +585,13 @@
         <state relative-caret-position="2430">
           <caret line="163" column="31" lean-forward="false" selection-start-line="163" selection-start-column="31" selection-end-line="163" selection-end-column="31" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
@@ -646,16 +646,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        <state relative-caret-position="464">
+          <caret line="112" column="35" lean-forward="false" selection-start-line="112" selection-start-column="35" selection-end-line="112" selection-end-column="35" />
           <folding>
-            <marker date="1555993559252" expanded="true" signature="12124:12203" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12217" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12124:12218" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12299:12366" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12299:12367" ph="SELECT ${$di... ${$table}" />
-            <marker date="1555993559252" expanded="true" signature="12661:12741" ph="SELECT COUNT... " />
-            <marker date="1555993559252" expanded="true" signature="12661:12747" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12176" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12190" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12097:12191" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12272:12339" ph="SELECT ${$fi... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12272:12340" ph="SELECT ${$di... ${$table}" />
+            <marker date="1555993892778" expanded="true" signature="12634:12714" ph="SELECT COUNT... " />
+            <marker date="1555993892778" expanded="true" signature="12634:12720" ph="SELECT COUNT... " />
           </folding>
         </state>
       </provider>
