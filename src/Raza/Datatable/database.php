@@ -117,9 +117,9 @@ class database
 
         if($order_by_distinct){
             if($order != ''){
-                $order .= ", " . implode(', ', $order_by_distinct);
+                $order .= ", $order_by_distinct ";
             }else{
-                $order = "ORDER BY " .implode(', ', $order_by_distinct);
+                $order = "ORDER BY $order_by_distinct ";
             }
         }
 
