@@ -91,7 +91,7 @@ class database
      *  @param  array $columns Column information array
      *  @return string SQL order by clause
      */
-    static function order ( $request, $columns )
+    static function order ( $request, $columns , $order_by_distinct)
     {
         $order = '';
         if ( isset($request['order']) && count($request['order']) ) {
@@ -110,8 +110,19 @@ class database
                     $orderBy[] = ''.$column['db'].' '.$dir;
                 }
             }
-            $order = 'ORDER BY '.implode(', ', $orderBy);
+            $order = 'ORDER BY '.implode(', ', $orderBy)   ;
+
+
         }
+
+        if($order_by_distinct){
+            if($order != ''){
+                $order .= ", " . implode(', ', $order_by_distinct);
+            }else{
+                $order = "ORDER BY " .implode(', ', $order_by_distinct);
+            }
+        }
+
         return $order;
     }
     /**
@@ -310,7 +321,7 @@ class database
         $db = self::$_db;
         // Build the SQL query string from the request
         $limit = self::limit( $request, $columns );
-        $order = self::order( $request, $columns );
+        $order = self::order( $request, $columns, $distinct );
         $where = self::filter( $request, $columns, $bindings );
         $join = self::join( $joins );
         $fileds = self::columns($columns);
