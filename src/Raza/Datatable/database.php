@@ -110,17 +110,9 @@ class database
                     $orderBy[] = ''.$column['db'].' '.$dir;
                 }
             }
-            $order = 'ORDER BY '.implode(', ', $orderBy)   ;
+            $order = 'ORDER BY ' . $order_by_distinct . " , ".implode(', ', $orderBy)   ;
 
 
-        }
-
-        if($order_by_distinct){
-            if($order != ''){
-                $order .= ", $order_by_distinct ";
-            }else{
-                $order = "ORDER BY $order_by_distinct ";
-            }
         }
 
         return $order;
