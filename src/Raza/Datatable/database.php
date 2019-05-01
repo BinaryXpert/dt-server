@@ -363,9 +363,9 @@ class database
             "recordsTotal"    => intval( $recordsTotal ),
             "recordsFiltered" => intval( $recordsFiltered ),
             "data"            => self::data_output( $columns, $data ),
-            "sql"			  => $psql,
-            "count_sql"			  => $count_sql,
-            "length"          => $length_psql
+//            "sql"			  => $psql,
+//            "count_sql"			  => $count_sql,
+//            "length"          => $length_psql
         );
     }
     /**
