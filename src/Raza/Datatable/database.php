@@ -345,7 +345,7 @@ class database
         // Data set length after filtering
         $recordsFiltered = @$total_count[0]["total_count"];
         // Total data set length
-        $length_psql = "SELECT COUNT ( DISTINCT {$primaryKey}) as total_count
+        $length_psql = "SELECT COUNT ( {$primaryKey}) as total_count
 			 FROM   $table 
 			    $join
               ";
