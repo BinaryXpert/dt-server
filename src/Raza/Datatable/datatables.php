@@ -31,6 +31,8 @@ class datatables
 
     private $_distinct;
 
+    private $_debug = false;
+
 
 
     public function __construct($host, $port, $db_name, $user_name, $password)
@@ -145,6 +147,20 @@ class datatables
 
 
     /**
+     * Set Debugger
+     *
+     * Set if its debug mode
+     *
+     * @param mix $param1 An array containing the parameter
+     *
+     * @return null
+     */
+    public function setDebug($param)
+    {
+        $this->_debug = $param;
+    }
+
+    /**
      * Fetch Data
      *
      * Get Data for datatable
@@ -153,7 +169,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where, $this->_distinct, true);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where, $this->_distinct, true, $this->_debug);
     }
 
 

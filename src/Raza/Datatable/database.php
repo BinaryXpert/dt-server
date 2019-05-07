@@ -307,7 +307,7 @@ class database
      *  @param  array $columns Column information array
      *  @return array          Server-side processing response array
      */
-    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = null, $distinct = null, $group_by =  null )
+    static function fetchData ( $request, $table, $primaryKey, $columns, $joins, $added_where  = null, $distinct = null, $group_by =  null , $debug = FALSE)
     {
         $bindings = array();
         $db = self::$_db;
@@ -359,13 +359,13 @@ class database
          * Output
          */
         return array(
-            "draw"            => intval( $request['draw'] ),
-            "recordsTotal"    => intval( $recordsTotal ),
-            "recordsFiltered" => intval( $recordsFiltered ),
-            "data"            => self::data_output( $columns, $data ),
-//            "sql"			  => $psql,
-//            "count_sql"			  => $count_sql,
-//            "length"          => $length_psql
+            "draw"              =>  intval( $request['draw'] ),
+            "recordsTotal"      =>  intval( $recordsTotal ),
+            "recordsFiltered"   =>  intval( $recordsFiltered ),
+            "data"              =>  self::data_output( $columns, $data ),
+            "sql"			    =>  $debug ? $psql : '',
+            "count_sql"		    =>  $debug ? $count_sql : "",
+            "length"            =>  $debug ? $length_psql : ""
         );
     }
     /**
