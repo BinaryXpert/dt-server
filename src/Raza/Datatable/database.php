@@ -257,7 +257,8 @@ class database
         $sqlQuery = "";
         if(count($joins)){
             foreach ($joins as $join){
-                $sqlQuery .=  $join['type'] . " JOIN " . $join['table'] . " ON " . $join['primary'] . " = " . $join['secondary'] . " ";
+                $operator = isset($join['operator']) ? $join['operator'] : "=";
+                $sqlQuery .=  $join['type'] . " JOIN " . $join['table'] . " ON " . $join['primary'] . " $operator " . $join['secondary'] . " ";
             }
         }
         return $sqlQuery;
