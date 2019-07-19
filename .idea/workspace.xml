@@ -4,6 +4,7 @@
     <list default="true" id="6409b128-19ba-4a87-b4e9-79106385dad2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Raza/Datatable/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Raza/Datatable/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,20 +20,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="503">
-              <caret line="259" column="77" selection-start-line="259" selection-start-column="77" selection-end-line="259" selection-end-column="77" />
-              <folding>
-                <marker date="1563521729697" expanded="true" signature="12202:12281" ph="SELECT COUNT... " />
-                <marker date="1563521729697" expanded="true" signature="12202:12295" ph="SELECT COUNT... " />
-                <marker date="1563521729697" expanded="true" signature="12202:12296" ph="SELECT COUNT... " />
-                <marker date="1563521729697" expanded="true" signature="12377:12444" ph="SELECT ${$fi... ${$table}" />
-                <marker date="1563521729697" expanded="true" signature="12377:12445" ph="SELECT ${$di... ${$table}" />
-                <marker date="1563521729697" expanded="true" signature="12739:12810" ph="SELECT COUNT... " />
-                <marker date="1563521729697" expanded="true" signature="12739:12816" ph="SELECT COUNT... " />
-              </folding>
+            <state relative-caret-position="930">
+              <caret line="509" column="2" selection-start-line="509" selection-start-column="2" selection-end-line="509" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="525">
+              <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -54,8 +55,8 @@
       <list>
         <option value="$PROJECT_DIR$/dt-server/src/Raza/Datatable/datatables.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" />
         <option value="$PROJECT_DIR$/src/Raza/Datatable/database.php" />
+        <option value="$PROJECT_DIR$/src/Raza/Datatable/datatables.php" />
       </list>
     </option>
   </component>
@@ -162,12 +163,12 @@
       <workItem from="1557227547317" duration="1570000" />
       <workItem from="1557831861824" duration="22000" />
       <workItem from="1557834405052" duration="465000" />
-      <workItem from="1563521647530" duration="83000" />
+      <workItem from="1563521647530" duration="2588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33135000" />
+    <option name="totallyTimeSpent" value="35640000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="-289" width="1920" height="1080" extended-state="0" />
@@ -210,26 +211,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
+    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="157" column="28" selection-start-line="157" selection-start-column="20" selection-end-line="157" selection-end-column="28" />
+        <state relative-caret-position="930">
+          <caret line="509" column="2" selection-start-line="509" selection-start-column="2" selection-end-line="509" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/database.php">
+    <entry file="file://$PROJECT_DIR$/src/Raza/Datatable/datatables.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="503">
-          <caret line="259" column="77" selection-start-line="259" selection-start-column="77" selection-end-line="259" selection-end-column="77" />
-          <folding>
-            <marker date="1563521729697" expanded="true" signature="12202:12281" ph="SELECT COUNT... " />
-            <marker date="1563521729697" expanded="true" signature="12202:12295" ph="SELECT COUNT... " />
-            <marker date="1563521729697" expanded="true" signature="12202:12296" ph="SELECT COUNT... " />
-            <marker date="1563521729697" expanded="true" signature="12377:12444" ph="SELECT ${$fi... ${$table}" />
-            <marker date="1563521729697" expanded="true" signature="12377:12445" ph="SELECT ${$di... ${$table}" />
-            <marker date="1563521729697" expanded="true" signature="12739:12810" ph="SELECT COUNT... " />
-            <marker date="1563521729697" expanded="true" signature="12739:12816" ph="SELECT COUNT... " />
-          </folding>
+        <state relative-caret-position="525">
+          <caret line="35" column="30" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
         </state>
       </provider>
     </entry>

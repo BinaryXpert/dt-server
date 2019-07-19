@@ -33,6 +33,8 @@ class datatables
 
     private $_debug = false;
 
+    private $_group_by = null;
+
 
 
     public function __construct($host, $port, $db_name, $user_name, $password)
@@ -169,7 +171,7 @@ class datatables
      */
     public function getData(){
 
-        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where, $this->_distinct, true, $this->_debug);
+        return $this->database->fetchData($_GET, $this->_table_name, $this->_primary_key, $this->_colums, $this->_join_table, $this->where, $this->_distinct, $this->_group_by, $this->_debug);
     }
 
 

@@ -319,10 +319,12 @@ class database
         $join = self::join( $joins );
         $fileds = self::columns($columns);
 
-        $group_by = "";
 
         if($added_where)
             $where = trim($where) ? $where . " AND " . $added_where : ' WHERE ' . $added_where;
+
+        if($group_by)
+            $group_by = " GROUP BY " . $group_by;
 
         if($distinct)
             $distinct = "DISTINCT ON ( " . $distinct . ") ";
@@ -334,6 +336,7 @@ class database
 			 FROM   $table 
 			    $join 
 			    $where
+			    $group_by
 			    ";
 
         // Main query to actually get the data
@@ -345,6 +348,13 @@ class database
 
         // Data set length after filtering
         $recordsFiltered = @$total_count[0]["total_count"];
+
+        if(count($total_count) > 1){
+            $recordsFiltered = count($total_count);
+        }else{
+            $recordsFiltered = @$total_count[0]['total_count'];
+        }
+
         // Total data set length
         $length_psql = "SELECT COUNT ( {$primaryKey}) as total_count
 			 FROM   $table 
@@ -353,9 +363,17 @@ class database
         if($added_where)
             $length_psql .= " WHERE $added_where";
 
+        if($group_by)
+            $length_psql .= " $group_by";
+
         $resTotalLength = self::sql_exec( $db,$length_psql);
 
-        $recordsTotal = @$resTotalLength[0]['total_count'];
+        if(count($resTotalLength) > 1){
+            $recordsTotal = count($resTotalLength);
+        }else{
+            $recordsTotal = @$resTotalLength[0]['total_count'];
+        }
+
         /*
          * Output
          */
